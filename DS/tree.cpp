@@ -134,19 +134,17 @@ void tree::preorderI(tree* root)
 }
 tree* tree::create()
 {
-  tree* p;
+  tree *p = new tree;
   int x;
-  cout<<"Enter data(-1 for NULL)\n";
+  cout<<"Enter data(-1 for no data)";
   cin>>x;
-  if(x == -1)
+  if(x==-1)
   return NULL;
-  p = new tree;
-  p->data = x;
-  cout<<"Enter Left child of "<<x<<endl;
-  p->lchild = create();
-  cout<<"Enter Right Child of "<<x<<endl;
+  cout<<"Enter lchild for "<<x<<endl;
+  p->lchild =create();
+  cout<<"Enter rchild for "<<x<<endl;
   p->rchild = create();
-  return p;
+  return root;
 }
 tree* tree::insert(tree* root)
 {
