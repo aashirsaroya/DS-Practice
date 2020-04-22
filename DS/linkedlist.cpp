@@ -107,9 +107,12 @@ node* node::reverse(node* head)
 }
 node* node::sort(node* head)
 {
-  for(node *i=head;;i=i->next)
+  node* i = head;
+  node* j;
+  while(i!=NULL)
   {
-    for(node *j=i->next;;j=j->next)
+    j = i->next;
+    while(j!=NULL)
     {
       if((i->data)>(j->data))
       {
@@ -117,7 +120,9 @@ node* node::sort(node* head)
         i->data = j->data;
         j->data = t;
       }
+      j = j->next;
     }
+    i = i->next;
   }
   return head;
 }
